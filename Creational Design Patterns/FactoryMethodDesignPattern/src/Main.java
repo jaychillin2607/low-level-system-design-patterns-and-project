@@ -1,8 +1,7 @@
-import javax.swing.text.html.HTML;
-
 import factory.*;
 import product.*;
 
+@SuppressWarnings("unused")
 class Main {
   public static void main(String[] args) {
     // Factory
