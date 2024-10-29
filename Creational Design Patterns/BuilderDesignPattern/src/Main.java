@@ -1,5 +1,3 @@
-import java.util.*;
-
 import builder.HouseBuilder;
 import director.Director;
 import product.House;
