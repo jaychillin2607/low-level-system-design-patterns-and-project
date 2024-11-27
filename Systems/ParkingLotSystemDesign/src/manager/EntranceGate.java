@@ -28,10 +28,10 @@ public class EntranceGate {
         vehicle.getVehicleType(),
         vehicle.getVehicleId(),
         availableSpot.getParkingSpotId());
-    return generateTicket(availableSpot, vehicle);
+    return generateTicket(availableSpot);
   }
 
-  private Ticket generateTicket(ParkingSpot spot, Vehicle vehicle) {
+  private Ticket generateTicket(ParkingSpot spot) {
     return new Ticket(UUID.randomUUID().toString(), spot, vehicle);
   }
 }
