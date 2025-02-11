@@ -4,13 +4,11 @@ public class ItemShelf {
   private Item item;
   private int code;
   private int stock;
-  private boolean stockOut;
 
   public ItemShelf(Item item, int code, int stock) {
     this.item = item;
     this.code = code;
     this.stock = stock;
-    stockOut = false;
   }
 
   public Item getItem() {
@@ -33,15 +31,11 @@ public class ItemShelf {
     return stock;
   }
 
-  public void set(int stock) {
+  public void setStock(int stock) {
     this.stock = stock;
-    if (this.stock == 0) {
-      stockOut = true;
-    }
   }
 
   public boolean isStockOut() {
-    return stockOut;
+    return stock == 0;
   }
-
 }
