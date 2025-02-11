@@ -22,4 +22,9 @@ public class Item {
   public ItemType getItemType() {
     return itemType;
   }
+
+  @Override
+  public String toString() {
+    return String.format("ItemType: %s || Price: %d", itemType, price);
+  }
 }

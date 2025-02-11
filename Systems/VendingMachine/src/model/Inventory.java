@@ -3,8 +3,9 @@ package model;
 public class Inventory {
   ItemShelf inventory[];
 
-  public Inventory(int count) {
-    inventory = new ItemShelf[count];
+  public Inventory(int size) {
+    inventory = new ItemShelf[size];
+    initializeInventory();
   }
 
   public void initializeInventory() {
@@ -14,7 +15,7 @@ public class Inventory {
     }
   }
 
-  public ItemShelf[] getInventory() {
+  public ItemShelf[] getInventoryShelves() {
     return inventory;
   }
 
@@ -23,20 +24,27 @@ public class Inventory {
   }
 
   public Item getItem(int code) {
+    ItemShelf itemShelf = getItemShelf(code);
+    if (itemShelf != null)
+      return itemShelf.getItem();
+    return null;
+  }
+
+  public ItemShelf getItemShelf(int code) {
     for (ItemShelf itemShelf : inventory) {
       if (itemShelf.getCode() == code)
-        return itemShelf.getItem();
+        return itemShelf;
     }
     return null;
   }
 
   public void setItem(int code, Item item, int stock) {
-    for (int i = 0; i < inventory.length; i++) {
-      if (inventory[i].getCode() == code) {
-        inventory[i].setItem(item);
-        inventory[i].setStock(stock);
-        return;
-      }
+    ItemShelf itemShelf = getItemShelf(code);
+    if (itemShelf != null) {
+      itemShelf.setItem(item);
+      itemShelf.setStock(stock);
+    } else {
+      System.out.println("no item with code:" + code);
     }
   }
 

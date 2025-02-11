@@ -1,18 +1,29 @@
 package model.state;
 
-public interface State {
-  void clickOnInsertCoinButton();
+import machine.VendingMachine;
 
-  void insertCoins(int amount);
+public abstract class State {
+  protected VendingMachine vendingMachine;
 
-  void cancel();
+  public State(VendingMachine vendingMachine) {
+    this.vendingMachine = vendingMachine;
+  }
 
-  void clickOnSelectItemsButton();
+  public abstract void clickOnInsertCoinButton() throws Exception;
 
-  void selectItem(int code);
+  public abstract void insertCoins(int amount) throws Exception;
 
-  void getChange();
+  public abstract void cancel() throws Exception;
 
-  void clickOnDispenseItem();
+  public abstract void clickOnSelectItemsButton() throws Exception;
 
+  public abstract void selectItem(int code, int qty) throws Exception;
+
+  public abstract void refundAll() throws Exception;
+
+  public abstract void clickOnDispenseItem() throws Exception;
+
+  public abstract void getChange() throws Exception;
+
+  public abstract void dispenseItems() throws Exception;
 }

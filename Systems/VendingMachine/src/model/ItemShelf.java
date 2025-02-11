@@ -38,4 +38,9 @@ public class ItemShelf {
   public boolean isStockOut() {
     return stock == 0;
   }
+
+  @Override
+  public String toString() {
+    return String.format("%s || Stock: %d", item, stock);
+  }
 }
